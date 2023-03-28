@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFApplicationArc.Pages.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApplicationArc.Pages"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="150" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" >
+    <Grid>
+        <StackPanel Margin="40">
+            <TextBlock Text="Yükleniyor..." FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

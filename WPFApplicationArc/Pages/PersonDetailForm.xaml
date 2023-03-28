@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplicationArc.Pages"
         mc:Ignorable="d"
-        Title="PersonDetail" Height="Auto" Width="486" Loaded="Window_Loaded">
+        Title="PersonDetail" Height="400" Width="486" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
+    
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
             <Label Content="Adı"/>

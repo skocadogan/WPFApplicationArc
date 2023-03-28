@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplicationArc.Pages"
         mc:Ignorable="d"
-        Title="DepartmentForm" Height="178" Width="316">
+        Title="DepartmentForm" Height="178" Width="316"  WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="162">
             <Label Content="Bölüm Adı" Margin="10"/>

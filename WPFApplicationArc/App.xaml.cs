@@ -10,6 +10,7 @@ using WPFApplicationArc.DBContexts;
 using WPFApplicationArc.Services;
 using WPFApplicationArc.Pages;
 using WPFApplicationArc.Services.ServiceInterfaces;
+using System.Diagnostics;
 
 namespace WPFApplicationArc
 {
@@ -70,9 +71,13 @@ namespace WPFApplicationArc
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            Debug.WriteLine("Yükleniyor...");
+            // Açılış Ekranı.
+            // İşlemler yapılırken Gösterilmesi için
+            var splashScreen = new Pages.SplashScreen();
+            splashScreen.Show();
 
             await host.StartAsync();
-
             var scope = host.Services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDBContext>();
             
@@ -83,6 +88,11 @@ namespace WPFApplicationArc
             var mainWindow = scope.ServiceProvider.GetRequiredService<MainWindow>();
 
             mainWindow.Show();
+
+            Debug.WriteLine("Yüklendi...");
+            // Açılış ekranını kapat.
+            splashScreen.Close();
+            
             base.OnStartup(e);
         }
 
