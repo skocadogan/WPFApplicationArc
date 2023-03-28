@@ -58,11 +58,6 @@ namespace WPFApplicationArc
                    services.AddScoped<IPersonService, PersonService>();
                    services.AddScoped<IDepartmentService, DepartmentService>();
 
-                   // Ekranlarda kullanılacak servislerin tanımlamaları
-                   services.AddScoped(s => s.GetRequiredService<PersonService>());
-                   services.AddScoped(s => s.GetRequiredService<DepartmentService>());
-
-
                    // Çağırılacak ekranların tanımlamaları
                    services.AddTransient<MainWindow>();
                    services.AddTransient<PersonDetailForm>();
@@ -80,8 +75,11 @@ namespace WPFApplicationArc
 
             var scope = host.Services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDBContext>();
+            
+            // Veritabanı yoksa sıfırdan yarat.
             await dbContext.Database.EnsureCreatedAsync();
-
+            
+            // Ana Ekran tanımlanıp gösteriliyor.
             var mainWindow = scope.ServiceProvider.GetRequiredService<MainWindow>();
 
             mainWindow.Show();
@@ -90,6 +88,7 @@ namespace WPFApplicationArc
 
         protected override async void OnExit(ExitEventArgs e)
         {
+            // Program kapatıldığında Dependency Injection Container'i hafızadan sil.
             await host.StopAsync();
             host.Dispose();
             base.OnExit(e);
